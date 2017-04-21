@@ -1,0 +1,8 @@
+{
+  "generator-node": {
+    "promptValues": {
+      "authorName": "John Grishin",
+      "authorEmail": "r@exah.ru"
+    }
+  }
+}
