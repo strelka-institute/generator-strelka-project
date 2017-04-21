@@ -1,0 +1,39 @@
+{
+  "name": "<%= projectKebabName %>",
+  "version": "0.0.0",
+  "description": "<%= projectDescription %>",
+  "repository": "strelka-institute/<%= projectKebabName %>",
+  "private": true,
+  "scripts": {
+    "start": "echo 'please, add `start` script to package.json'",
+    "dev": "echo 'please, add `dev` script to package.json'",
+    "build": "echo 'please, add `build` script to package.json'",
+    "prebuild": "npm run test",
+    "test": "npm run lint",
+    "lint": "eslint .",
+    "preversion": "git diff --quiet --exit-code && git checkout master && git merge --no-edit develop",
+    "postversion": "git checkout develop && git merge --no-edit master",
+    "prepush": "npm run lint",
+    "premerge": "npm run lint"
+  },
+  "engines": {
+    "node": ">=6.9",
+    "npm": ">=3.10"
+  },
+  "browserslist": [
+    "> 1%",
+    "iOS >= 8",
+    "IE >= 11"
+  ],
+  "dependencies": {
+    "eslint": "latest",
+    "eslint-config-standard": "latest",
+    "eslint-config-strelka": "latest",
+    "eslint-plugin-html": "latest",
+    "eslint-plugin-import": "latest",
+    "eslint-plugin-node": "latest",
+    "eslint-plugin-promise": "latest",
+    "eslint-plugin-standard": "latest",
+    "husky": "latest"
+  }
+}
