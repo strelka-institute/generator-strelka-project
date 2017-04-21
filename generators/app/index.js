@@ -1,14 +1,20 @@
 const Generator = require('yeoman-generator')
 const chalk = require('chalk')
-const yosay = require('yosay')
 const _ = require('lodash')
+
+const STRELKA_LOGO = `
+  . . . . . . . . . . . . . . . . . . . .
+  .                  .              ..  .
+  .                  .           ..     .
+  .                  .        ..        .
+  .                  .     ..           .
+  .                  .  ..              .
+  . . . . . . . . . . . . . . . . . . . .
+`
 
 module.exports = class extends Generator {
   prompting () {
-    // Have Yeoman greet the user.
-    this.log(yosay(
-      'Welcome to the extraordinary ' + chalk.red('generator-strelka-frontend') + ' generator!'
-    ))
+    this.log(chalk.red(STRELKA_LOGO))
 
     const prompts = [
       {
