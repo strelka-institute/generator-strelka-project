@@ -15,6 +15,7 @@ npm install -g generator-strelka-project
 Then generate your new project:
 
 ```bash
+mkdir name-of-new-project && cd name-of-new-project
 yo strelka-project
 ```
 
