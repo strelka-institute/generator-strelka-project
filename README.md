@@ -7,16 +7,16 @@
 First, install [Yeoman](http://yeoman.io) and `generator-strelka-project` with [npm](https://www.npmjs.com/)
 
 ```bash
-npm install -g yo
-npm install -g generator-strelka-project
+$ npm install -g yo
+$ npm install -g generator-strelka-project
 ```
 
 
 Then generate your new project:
 
 ```bash
-mkdir name-of-new-project && cd name-of-new-project
-yo strelka-project
+$ mkdir name-of-new-project && cd name-of-new-project
+$ yo strelka-project
 ```
 
 
