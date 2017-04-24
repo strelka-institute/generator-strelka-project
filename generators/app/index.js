@@ -52,6 +52,7 @@ module.exports = class extends Generator {
 
   writing () {
     this._copyPaste('.gitignore')
+    this._copyPaste('.eslintignore')
     this._copyPaste('.editorconfig')
     this._copyPaste('.npmrc')
     this._copyPaste('.yarnrc')
@@ -62,6 +63,7 @@ module.exports = class extends Generator {
     if (this.answers.isConfig) {
       this._copyPaste('config')
     }
+
     if (this.answers.isDocker) {
       this._copyPaste('Dockerfile')
       this._copyPaste('.dockerignore')
