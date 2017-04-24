@@ -31,9 +31,15 @@ module.exports = class extends Generator {
       },
       {
         type: 'confirm',
-        name: 'someAnswer',
-        message: 'Would you like to enable this option?',
-        default: true
+        name: 'isDocker',
+        message: 'Would you like to add Dockerfile?',
+        default: false
+      },
+      {
+        type: 'confirm',
+        name: 'isConfig',
+        message: 'Would you like to add config folder?',
+        default: false
       }
     ]
 
@@ -45,12 +51,25 @@ module.exports = class extends Generator {
   }
 
   writing () {
+    this._copyPaste('.gitignore')
+    this._copyPaste('.editorconfig')
+    this._copyPaste('.npmrc')
+    this._copyPaste('.yarnrc')
     this._copyPaste('screenshot.png')
     this._copyPasteTpl('README.md')
     this._copyPasteTpl('package.json')
+
+    if (this.answers.isConfig) {
+      this._copyPaste('config')
+    }
+    if (this.answers.isDocker) {
+      this._copyPaste('Dockerfile')
+      this._copyPaste('.dockerignore')
+    }
   }
 
   install () {
+    this.spawnCommand('git', [ 'init', '--quiet' ])
     this.npmInstall('husky', () => this.installDependencies({
       npm: false,
       bower: false,

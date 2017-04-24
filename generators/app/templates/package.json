@@ -16,9 +16,11 @@
     "prepush": "npm run lint",
     "premerge": "npm run lint"
   },
+  "eslintConfig": {
+    "extends": "strelka"
+  },
   "engines": {
-    "node": ">=6.9",
-    "npm": ">=3.10"
+    "node": ">=6.9"
   },
   "browserslist": [
     "> 1%",
@@ -26,6 +28,10 @@
     "IE >= 11"
   ],
   "dependencies": {
+    <% if (isConfig) { %>
+    "config": "1.25.1",
+    <% } %>
+    "cross-env": "latest",
     "eslint": "latest",
     "eslint-config-standard": "latest",
     "eslint-config-strelka": "latest",
@@ -34,6 +40,7 @@
     "eslint-plugin-node": "latest",
     "eslint-plugin-promise": "latest",
     "eslint-plugin-standard": "latest",
-    "husky": "latest"
+    "husky": "latest",
+    "rimraf": "latest"
   }
 }

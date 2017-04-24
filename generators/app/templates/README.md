@@ -11,7 +11,7 @@
 - [Yarn](https://yarnpkg.com/en/docs/install) package manager
 
 
-## Start
+## Quick Start
 
 ```sh
 $ yarn # or npm install
@@ -22,24 +22,17 @@ $ open http://0.0.0.0:3000
 
 ## Build & Deploy
 
-> TODO
+> TODO: Steps required to deploy application
 
 
-### Configs
+### Setup
 
-> TODO
-
-
-## Developing
-
-### Versioning
-
-This project is using [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/strelka-institute/the-new-normal/tags).
+> TODO: Configuration files and env variables
 
 
 ## Related
 
-> TODO
+- [eslint-config-strelka](https://github.com/strelka-institute/eslint-config-strelka) for Strelka Projects 
 
 ---
 Strelka
