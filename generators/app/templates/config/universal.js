@@ -1,17 +1,11 @@
-const sharedConfig = require('./universal')
-const path = require('path')
-const PATH_ROOT = path.resolve(__dirname, '../')
-const resolve = file => path.resolve(PATH_ROOT, file)
+const isDev = process.env.NODE_ENV !== 'production'
+const isProd = !isDev
+const isClient = typeof window !== 'undefined'
+const isServer = !isClient
 
-const config = {
-  host: process.env.HOST || '0.0.0.0',
-  port: process.env.PORT || 3000,
-  paths: {
-    root: PATH_ROOT,
-    dist: resolve('dist'),
-    src: resolve('src'),
-    public: process.env.PATH_PUBLIC || resolve('public')
-  }
+module.exports = {
+  isClient,
+  isServer,
+  isDev,
+  isProd
 }
-
-module.exports = Object.assign({}, sharedConfig, config)
