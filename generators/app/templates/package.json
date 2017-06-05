@@ -13,11 +13,18 @@
     "lint": "eslint .",
     "preversion": "git diff --quiet --exit-code && git checkout master && git merge --no-edit develop",
     "postversion": "git checkout develop && git merge --no-edit master",
+    "precommit": "lint-staged",
     "prepush": "npm run lint",
     "premerge": "npm run lint"
   },
   "eslintConfig": {
     "extends": "strelka"
+  },
+  "lint-staged": {
+    "*.js": [
+      "eslint --fix",
+      "git add"
+    ]
   },
   "engines": {
     "node": ">=6.9"

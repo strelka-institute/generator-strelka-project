@@ -85,6 +85,7 @@ module.exports = class extends Generator {
       'eslint-plugin-promise',
       'eslint-plugin-standard',
       'husky',
+      'lint-staged'
     ]
     const packages = []
 
