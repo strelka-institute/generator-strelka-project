@@ -50,7 +50,7 @@ module.exports = class extends Generator {
     })
   }
 
-  writing () {
+  configuring () {
     this._copyPaste('.gitignore')
     this._copyPaste('.eslintignore')
     this._copyPaste('.editorconfig')
@@ -68,15 +68,33 @@ module.exports = class extends Generator {
       this._copyPaste('Dockerfile')
       this._copyPaste('.dockerignore')
     }
+
+    this.spawnCommandSync('git', [ 'init', '--quiet' ])
   }
 
   install () {
-    this.spawnCommand('git', [ 'init', '--quiet' ])
-    this.npmInstall('husky', () => this.installDependencies({
-      npm: false,
-      bower: false,
-      yarn: true
-    }))
+    const devPackages = [
+      'cross-env',
+      'rimraf',
+      'eslint',
+      'eslint-config-standard',
+      'eslint-config-strelka',
+      'eslint-plugin-html',
+      'eslint-plugin-import',
+      'eslint-plugin-node',
+      'eslint-plugin-promise',
+      'eslint-plugin-standard',
+      'husky',
+    ]
+    const packages = []
+
+    if (this.answers.isConfig) {
+      packages.push('config')
+    }
+
+    this.npmInstall('husky', { 'save-dev': true })
+    this.yarnInstall(devPackages, { dev: true })
+    this.yarnInstall(packages)
   }
 
   _copyPaste (path) {
