@@ -14,6 +14,8 @@
   ],
   "scripts": {
     "prepublish": "nsp check",
+    "preversion": "git diff --quiet --exit-code && git checkout master && git merge --no-edit develop",
+    "postversion": "git checkout develop && git merge --no-edit master",
     "lint": "eslint ."
   },
   "eslintConfig": {
