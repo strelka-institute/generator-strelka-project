@@ -98,6 +98,11 @@ module.exports = class extends Generator {
     this.yarnInstall(packages)
   }
 
+  end () {
+    this.spawnCommandSync('git', [ 'add', '.' ])
+    this.spawnCommandSync('git', [ 'commit', '-m', '.' ])
+  }
+
   _copyPaste (path) {
     this.fs.copy(
       this.templatePath(path),
