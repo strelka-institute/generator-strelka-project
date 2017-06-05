@@ -8,6 +8,7 @@ const config = {
   port: process.env.PORT || 3000,
   paths: {
     root: PATH_ROOT,
+    config: __dirname,
     dist: resolve('dist'),
     src: resolve('src'),
     public: process.env.PATH_PUBLIC || resolve('public')
