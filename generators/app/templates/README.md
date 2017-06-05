@@ -32,7 +32,7 @@ $ open http://0.0.0.0:3000
 
 ## Related
 
-- [eslint-config-strelka](https://github.com/strelka-institute/eslint-config-strelka) for Strelka Projects 
+- [eslint-config-strelka](https://github.com/strelka-institute/eslint-config-strelka) - Strelka's eslint config
 
 ---
 Strelka
