@@ -1,4 +1,6 @@
-![](./screenshot.png)
+<% if (isScreenshot) { %>
+ ![](./screenshot.png)
+ <% } %>
 
 # <%= projectName %>
 
@@ -22,12 +24,12 @@ $ open http://0.0.0.0:3000
 
 ## Build & Deploy
 
-> TODO: Steps required to deploy application
+> Steps required to deploy application
 
 
 ### Setup
 
-> TODO: Configuration files and env variables
+> Configuration files and env variables
 
 
 ## Related
