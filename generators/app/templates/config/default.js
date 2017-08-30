@@ -3,9 +3,14 @@ const path = require('path')
 const PATH_ROOT = path.resolve(__dirname, '../')
 const resolve = file => path.resolve(PATH_ROOT, file)
 
+const host = process.env.HOST || '0.0.0.0'
+const port = process.env.PORT || 3000
+const baseURL = process.env.BASE_URL || `http://${host}:${port}`
+
 const config = {
-  host: process.env.HOST || '0.0.0.0',
-  port: process.env.PORT || 3000,
+  host,
+  port,
+  baseURL,
   paths: {
     root: PATH_ROOT,
     config: __dirname,
