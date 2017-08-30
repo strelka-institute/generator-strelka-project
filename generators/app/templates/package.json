@@ -9,25 +9,20 @@
     "dev": "echo 'please, add `dev` script to package.json'",
     "build": "echo 'please, add `build` script to package.json'",
     "prebuild": "npm run test",
-    "test": "npm run lint",
-    "lint": "eslint .",
-    "preversion": "git diff --quiet --exit-code && git checkout master && git merge --no-edit develop",
-    "postversion": "git checkout develop && git merge --no-edit master",
+    "test": "npm run test:lint",
+    "test:lint": "eslint .",
     "precommit": "lint-staged",
-    "prepush": "npm run lint",
-    "premerge": "npm run lint"
+    "prepush": "npm run test:lint",
+    "premerge": "npm run test:lint"
   },
   "eslintConfig": {
     "extends": "strelka"
   },
   "lint-staged": {
-    "*.js": [
-      "eslint --fix",
-      "git add"
-    ]
+    "*.js": "eslint"
   },
   "engines": {
-    "node": ">=6.9"
+    "node": ">=8"
   },
   "browserslist": [
     "> 1%",
