@@ -12,8 +12,8 @@
     "test": "npm run test:lint",
     "test:lint": "eslint .",
     "precommit": "lint-staged",
-    "prepush": "npm run test:lint",
-    "premerge": "npm run test:lint"
+    "prepush": "npm run test",
+    "premerge": "npm run test"
   },
   "eslintConfig": {
     "extends": "strelka"
