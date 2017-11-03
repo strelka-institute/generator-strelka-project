@@ -65,7 +65,6 @@ module.exports = class extends Generator {
   configuring () {
     this._copyPaste('.eslintignore')
     this._copyPaste('.editorconfig')
-    this._copyPaste('.yarnrc')
     this._copyPaste('gitignore', '.')
     this._copyPaste('npmrc', '.')
     this._copyPaste('yarnrc', '.')
