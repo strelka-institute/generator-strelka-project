@@ -63,11 +63,12 @@ module.exports = class extends Generator {
   }
 
   configuring () {
-    this._copyPaste('.gitignore')
     this._copyPaste('.eslintignore')
     this._copyPaste('.editorconfig')
-    this._copyPaste('.npmrc')
     this._copyPaste('.yarnrc')
+    this._copyPaste('gitignore', '.')
+    this._copyPaste('npmrc', '.')
+    this._copyPaste('yarnrc', '.')
     this._copyPasteTpl('README.md')
     this._copyPasteTpl('package.json')
 
@@ -122,11 +123,15 @@ module.exports = class extends Generator {
     }
   }
 
-  _copyPaste (path) {
-    this.fs.copy(
-      this.templatePath(path),
-      this.destinationPath(path)
-    )
+  _copyPaste (path, prefix = '') {
+    try {
+      this.fs.copy(
+        this.templatePath(path),
+        this.destinationPath(prefix + path)
+      )
+    } catch (error) {
+      console.error(error)
+    }
   }
 
   _copyPasteTpl (path) {
